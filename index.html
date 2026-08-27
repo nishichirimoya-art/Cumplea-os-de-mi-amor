@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff3f8" />
+  <title>Juliana's Birthday Universe ♡</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <audio id="bgMusic" loop preload="metadata">
+    <source src="assets/music/cancion.mp3" type="audio/mpeg" />
+  </audio>
+
+  <header class="topbar">
+    <div class="brand">JULIANA ✦ 18</div>
+    <div class="top-actions">
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <button id="musicBtn" class="icon-btn" type="button" aria-label="Música">♫</button>
+    </div>
+  </header>
+
+  <!-- 1. PORTADA COQUETTE -->
+  <section id="hero" class="screen theme-coquette">
+    <div class="floating-bow bow-a">୨୧</div>
+    <div class="floating-bow bow-b">୨୧</div>
+
+    <div class="hero-card glass">
+      <p class="eyebrow">26 · AGOSTO · 2026</p>
+      <h1>Mi niñita<span>cumple 18</span></h1>
+      <p class="subtitle">
+        Preparé un recorrido con recuerdos, minijuegos, sorpresas y muchas
+        pequeñas cosas pensadas para ti Mi amor💞.
+      </p>
+
+      <div class="envelope-scene" aria-hidden="true">
+        <div class="envelope">
+          <div class="letter">
+            <span>J</span>
+            <small>una sorpresa para tí 💕:3</small>
+          </div>
+          <div class="seal">♡</div>
+        </div>
+      </div>
+
+      <button id="openJourneyBtn" class="main-btn" type="button">ABRIR MI SORPRESA 🎀</button>
+      <p class="tiny-note">Sube el volumen y toca el botón para entrar</p>
+    </div>
+  </section>
+
+  <!-- 2. PRIMAVERA -->
+  <section id="spring" class="screen hidden theme-spring">
+    <div class="section-card wide glass">
+      <p class="eyebrow">CAPÍTULO 1 · PRIMAVERA</p>
+      <h2>Un jardín para ti 🌸</h2>
+      <p class="desc">
+        🌷🌿 Quise que esta segunda interfaz se sintiera como un pequeño jardincito hecho especialmente para ti: delicado, bonito y lleno de cositas suaves y tiernas. 🥺💗
+Ahora mira bien entre cada rincón y busca las 5 florecitas escondidas 🌸✨. 
+      </p>
+
+      <div class="spring-layout">
+        <div class="spring-photo card-photo">
+          <img src="assets/img/foto1.jpeg" alt="Juliana en primavera" />
+          <div class="photo-caption">Tu sonrisa también florece ♡</div>
+        </div>
+
+        <div class="spring-game">
+          <div class="spring-board" id="springBoard">
+            <button class="flower-btn flower-1" type="button">🌸</button>
+            <button class="flower-btn flower-2" type="button">🌼</button>
+            <button class="flower-btn flower-3" type="button">🌷</button>
+            <button class="flower-btn flower-4" type="button">🌺</button>
+            <button class="flower-btn flower-5" type="button">🌸</button>
+          </div>
+          <p class="counter-label">Flores encontradas: <b id="flowerCount">0</b>/5</p>
+          <p id="springStatus" class="status-text">🌸🌿 Encuentra todas las florecitas escondidas en el jardín, mi amor. 🥺💗 </p>
+        </div>
+      </div>
+
+      <button id="toKoreanBtn" class="main-btn hidden" type="button">IR AL SIGUIENTE MUNDO ✧</button>
+    </div>
+  </section>
+
+  <!-- 3. COREANO -->
+  <section id="korean" class="screen hidden theme-korean">
+    <div class="section-card wide glass darkish">
+      <p class="eyebrow neon-label">CAPÍTULO 2 · TEMÁTICA COREANA</p>
+      <h2 class="light-title">Una parada cute por una noche coreana ✨</h2>
+      <p class="desc light-text">
+        ✨☕ Entre letreros brillantes, un poquito de cafecito, recuerdos bonitos y un video muy especial, preparé otro rinconcito pensado especialmente para ti. 🥺💗
+      </p>
+
+      <div class="korean-grid">
+        <div class="video-panel">
+          <video id="videoPlayer" controls playsinline preload="metadata" poster="">
+            <source src="assets/video/video-juliana.mp4" type="video/mp4" />
+          </video>
+          <p class="mini-tip">Siempre serás mi Bubu y yo tu Dudu🥺💕 🎞️</p>
+        </div>
+
+        <div class="fortune-panel">
+          <div class="fortune-strip">
+            <div class="mini-photo">
+              <img src="assets/img/foto2.jpeg" alt="Foto 2 de Juliana" />
+            </div>
+            <div class="mini-photo">
+              <img src="assets/img/foto3.jpeg" alt="Foto 3 de Juliana" />
+            </div>
+          </div>
+
+          <div class="fortune-boxes">
+            <button class="fortune-btn" type="button" data-fortune="0">복 ♡</button>
+            <button class="fortune-btn" type="button" data-fortune="1">행운 ✦</button>
+            <button class="fortune-btn" type="button" data-fortune="2">사랑 🎀</button>
+          </div>
+
+          <div class="fortune-reveal">
+            <h3 id="fortuneTitle">Elige un sobrecito</h3>
+            <p id="fortuneText">Cada uno guarda una pequeña sorpresa para ti.</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="toAquariumBtn" class="main-btn" type="button">SUMERGIRME EN EL ACUARIO 🐠</button>
+    </div>
+  </section>
+
+  <!-- 4. ACUARIO -->
+  <section id="aquarium" class="screen hidden theme-aquarium">
+    <div class="section-card wide glass ocean-card">
+      <p class="eyebrow ocean-label">CAPÍTULO 3 · ACUARIO</p>
+      <h2 class="light-title">Un mundo bajo el agua :3 🫧</h2>
+      <p class="desc light-text">
+        🐠💗 Ahora toca encontrar a todos los pececitos, mi amor.🫧🐟 Cuando los encuentres, podrás descubrir cada pequeño mensaje que preparé con mucho cariño para ti. 💕✨
+      </p>
+
+      <div class="aquarium-tank" id="aquariumTank">
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="bubble b4"></div>
+
+        <button class="fish fish-1" type="button" data-fish="0">🐟</button>
+        <button class="fish fish-2" type="button" data-fish="1">🐠</button>
+        <button class="fish fish-3" type="button" data-fish="2">🐡</button>
+        <button class="fish fish-4" type="button" data-fish="3">🐟</button>
+      </div>
+
+      <div class="aquarium-bottom">
+        <div class="aquarium-message">
+          <h3 id="fishTitle">Peces de sorpresa</h3>
+          <p id="fishText">Toca cada pececito para que te revele algo.</p>
+        </div>
+        <div class="aquarium-photo bubble-photo">
+          <img src="assets/img/foto4.jpeg" alt="Juliana temática acuario" />
+        </div>
+      </div>
+
+      <p class="counter-label light-text">Peces tocados: <b id="fishCount">0</b>/4</p>
+      <button id="toArtBtn" class="main-btn hidden" type="button">PASAR AL MUNDO DEL ARTE 🎨</button>
+    </div>
+  </section>
+
+  <!-- 5. ARTE / ROMPECABEZAS -->
+  <section id="art" class="screen hidden theme-art">
+    <div class="section-card wide glass">
+      <p class="eyebrow">CAPÍTULO 4 · ARTE</p>
+      <h2>Tu recuerdo hecho rompecabezas 🎨</h2>
+      <p class="desc">
+        Tendrás que armar una fotito como un rompecabezas 🧩💕. Solo toca una pieza y luego toca otra para intercambiarlas de lugar, y así, poquito a poquito, ir acomodándolas hasta completar la imagen🌷💖 
+
+      <div class="art-layout">
+        <div class="palette-card">
+          <div class="palette-circle c1"></div>
+          <div class="palette-circle c2"></div>
+          <div class="palette-circle c3"></div>
+          <div class="palette-circle c4"></div>
+          <p>Pequeño estudio creativo para ti ♡</p>
+        </div>
+
+        <div class="puzzle-wrap">
+          <div id="puzzleBoard" class="puzzle-board" aria-label="Rompecabezas de foto"></div>
+          <div class="puzzle-actions">
+            <button id="shufflePuzzleBtn" class="secondary-btn" type="button">MEZCLAR OTRA VEZ</button>
+            <button id="toDessertsBtn" class="main-btn hidden" type="button">IR AL MUNDO DE POSTRES 🍮</button>
+          </div>
+          <p id="puzzleStatus" class="status-text">Arma la foto para desbloquear la siguiente sorpresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. POSTRES / MEMORY GAME -->
+  <section id="desserts" class="screen hidden theme-desserts">
+    <div class="section-card wide glass">
+      <p class="eyebrow">CAPÍTULO 5 · POSTRES</p>
+      <h2>El rincón más dulce 🍓🍮</h2>
+      <p class="desc">
+        🍰💕 Ahora viene un minijuego muy dulce y divertido, mi cielito ✨🥺. Tendrás que encontrar todas las parejitas de postres 🍩🧁🍰. 
+      </p>
+
+      <div class="dessert-layout">
+        <div class="memory-area">
+          <div id="memoryBoard" class="memory-board"></div>
+          <p id="memoryStatus" class="status-text">Empareja todas las cartas de postres.</p>
+        </div>
+
+        <div class="purin-panel" id="purinPanel">
+          <div class="purin-face">
+            <div class="hat"></div>
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+            <div class="nose">•</div>
+          </div>
+          <h3>Amiguito Pompompurin</h3>
+          <p>
+            💛🍮 Así como Pompompurin siempre lleva un poquito de dulzura consigo, quiero que tú también lleves contigo la mía. Porque entre todas las cositas bonitas de este recorrido, tú sigues siendo mi parte favorita. 🥺💛✨.
+          </p>
+          <div class="dessert-photo">
+            <img src="assets/img/foto5.jpeg" alt="Juliana en temática dulce" />
+          </div>
+        </div>
+      </div>
+
+      <button id="toFinalBtn" class="main-btn hidden" type="button">VER LA SORPRESA FINAL 🎂</button>
+    </div>
+  </section>
+
+  <!-- 7. FINAL + QR -->
+  <section id="final" class="screen hidden theme-final">
+    <div class="section-card wide glass final-card">
+      <p class="eyebrow">FINAL DEL RECORRIDO</p>
+      <h2>Feliz cumpleaños Mi amorr🥰💕</h2>
+      <p class="desc">
+        Llegaste hasta el final de este pequeño universo. 🥺💗 Quería que este recorrido se sintiera largo, especial e interactivo, como una pequeña experiencia creada con mucho cariño y pensada únicamente para ti. ✨
+      </p>
+
+      <div class="final-grid">
+        <div class="cake-zone">
+          <div class="cake">
+            <div class="candle candle-1"><i></i></div>
+            <div class="candle candle-2"><i></i></div>
+            <div class="candle candle-3"><i></i></div>
+            <div class="berry berry-1">🍓</div>
+            <div class="berry berry-2">🍓</div>
+            <div class="berry berry-3">🍓</div>
+            <div class="cake-top">18</div>
+            <div class="cake-layer top-layer"></div>
+            <div class="cake-layer bottom-layer"></div>
+            <div class="plate"></div>
+          </div>
+          <p class="signature">Con muchísimo cariño para la pechocha de mi colazhón💕</p>
+        </div>
+
+        <div class="qr-zone">
+          <h3>Corazón QR para entrar a la página 💗</h3>
+          <p class="small-note">
+            Cuando subas la página a internet, solo cambia la URL en <b>script.js</b>
+            y este código QR del corazón servirá para entrar escaneándolo.
+          </p>
+
+          <div class="heart-qr">
+            <img id="qrImage" alt="Código QR del corazón" />
+          </div>
+
+          <p id="qrUrlText" class="url-preview"></p>
+        </div>
+      </div>
+
+      <div class="final-actions">
+        <button id="confettiBtn" class="secondary-btn" type="button">MÁS CONFETI ✨</button>
+        <button id="restartBtn" class="main-btn" type="button">VOLVER A EMPEZAR ♡</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
